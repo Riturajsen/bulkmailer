@@ -25,12 +25,12 @@ if ($result->num_rows > 0) {
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'tandp@iiahmaviationacademy.com';
-        $mail->Password = 'Iiahm@262';
+        $mail->Username = 'YOUR_EMAIL';
+        $mail->Password = 'YOUR_PASS';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS ;
         $mail->Port = 465;
 
-        $mail->setFrom('tandp@iiahmaviationacademy.com', 'Rituraj Sen | IIAHM');
+        $mail->setFrom('YOUR_EMAIL', 'YOUR_NAME');
         $mail->isHTML(true);
 
         while ($row = $result->fetch_assoc()) {
@@ -40,9 +40,9 @@ if ($result->num_rows > 0) {
             $mail->Subject = 'Collaboration Opportunity with IIAHM Aviation Academy';
             $mail->Body = 'Dear ' . htmlspecialchars($row['comp_name']) . ',<br><br>' .
 
-                'I hope this message finds you well. My name is Rituraj Sen, and I am the Outreach Manager at IIAHM Aviation Academy. We are one of the leading institutions in aviation education from Bhopal Madhya Pradesh, dedicated to training the next generation of professionals in the hospitality and aviation industries.<br><br>' .
+                'I hope this message finds you well. My name is Rituraj Sen, and I am the Outreach Manager at YOUR_COMPANY_NAME. We are one of the leading institutions in aviation education from Bhopal Madhya Pradesh, dedicated to training the next generation of professionals in the hospitality and aviation industries.<br><br>' .
 
-                'I am reaching out to explore the possibility of a collaboration between '.$row['comp_name'].' and IIAHM Aviation Academy. We believe that a partnership with your esteemed company could provide our students with invaluable real-world experience and offer you access to a talented and motivated pool of future professionals.<br><br>' .
+                'I am reaching out to explore the possibility of a collaboration between '.$row['comp_name'].' and YOUR_COMPANY_NAME. We believe that a partnership with your esteemed company could provide our students with invaluable real-world experience and offer you access to a talented and motivated pool of future professionals.<br><br>' .
 
                 'We are particularly interested in discussing opportunities for internships, job placements, and any other collaborative initiatives that could benefit both our students and your organization. I have attached a detailed proposal outlining the potential benefits of this collaboration. I would be delighted to arrange a meeting at your earliest convenience to discuss this opportunity further.<br><br>' .
 
@@ -50,11 +50,7 @@ if ($result->num_rows > 0) {
 
                 'Best regards,<br><br>' .
 
-                'Rituraj Sen<br>' .
-                'Outreach Manager<br>' .
-                'IIAHM Aviation Academy<br><br>' .
-                '+91-9238408928<br>' .
-                'iiahmaviationacademy.com<br>';
+             ;
 
             try {
                 $mail->send();
